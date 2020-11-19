@@ -45,7 +45,7 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
 
     private void UpdateARImage(ARTrackedImage trackedImage)
     {
-        Debug.Log($"trackedImage.referenceImage.name: {trackedImage.referenceImage.name}");
-        UILog.text = "Found:" + trackedImage.referenceImage.name;
+        // Debug.Log($"trackedImage.referenceImage.name: {trackedImage.referenceImage.name}");
+        // UILog.text = "Found:" + trackedImage.referenceImage.name;
     }
 }
