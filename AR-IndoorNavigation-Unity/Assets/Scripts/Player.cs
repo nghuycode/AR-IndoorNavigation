@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Vector3 offset;
     public Camera MapCamera;
     public GameObject CameraAR;
     public GameObject MarkerPrefab;
     private void Update() {
-        this.transform.localPosition = CameraAR.transform.position;
+        this.transform.localPosition = CameraAR.transform.position + offset;
         TouchToSpawn();
     }
     private void TouchToSpawn() {

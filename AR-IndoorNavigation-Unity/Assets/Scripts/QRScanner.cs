@@ -10,8 +10,6 @@ public class QRScanner : MonoBehaviour
     public QRCodeDecodeController qrController;
     private void Start() {
         qrController.onQRScanFinished += onScanFinished;
-
-        onScanFinished("0");
     }
     public void onScanFinished(string data) {
         Log.text = data;
