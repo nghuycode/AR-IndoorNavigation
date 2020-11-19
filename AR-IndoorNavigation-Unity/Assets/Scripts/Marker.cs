@@ -9,6 +9,6 @@ public class Marker : MonoBehaviour
     public Vector3 OriginalPosition;
     private void Awake() {
         Name = this.gameObject.name;
-        OriginalPosition = this.transform.position;
+        OriginalPosition = this.transform.localPosition;
     }
 }

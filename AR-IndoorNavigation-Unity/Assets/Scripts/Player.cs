@@ -18,8 +18,8 @@ public class Player : MonoBehaviour
             if (touch.phase == TouchPhase.Began) {
                 GameObject GO = Instantiate(MarkerPrefab, this.transform.position, Quaternion.identity, this.transform.parent);
             }
-        }
         else
             return;
+        }
     }
 }

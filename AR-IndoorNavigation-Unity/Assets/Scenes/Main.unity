@@ -1410,7 +1410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e937502bd2a7de458c47e14856ad2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapMarker: {fileID: 0}
+  MapMarker: {fileID: 1838938794}
   Log: {fileID: 912507714}
   qrController: {fileID: 978977469}
 --- !u!1 &1115354530
