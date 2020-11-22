@@ -17,7 +17,6 @@ public class QRScanner : MonoBehaviour
 		}
     }
     public void onScanFinished(string data) {
-        Debug.Log("ccc");
-        MapMarker.OnMarkerFound(data);
+        MapMarker.SavePOI(data);
     }
 }
