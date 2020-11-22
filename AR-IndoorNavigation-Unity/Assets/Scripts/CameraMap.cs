@@ -9,5 +9,6 @@ public class CameraMap : MonoBehaviour
     void Update()
     {
         this.transform.position = new Vector3(Player.transform.position.x, this.transform.position.y, Player.transform.position.z);
+        this.transform.eulerAngles = new Vector3(90, 0, Player.transform.eulerAngles.x);
     }
 }

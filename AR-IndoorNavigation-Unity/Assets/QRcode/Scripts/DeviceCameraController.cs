@@ -17,10 +17,10 @@ public class DeviceCameraController : MonoBehaviour {
 		}
 	}
 
-	private DeviceCamera webcam;
-    GameObject e_CameraPlaneObj;
-	bool isCorrected = false;
-	float screenVideoRatio = 1.0f;
+	public DeviceCamera webcam;
+    public GameObject e_CameraPlaneObj;
+	public bool isCorrected = false;
+	public float screenVideoRatio = 1.0f;
 	public bool isUseEasyWebCam = true;
 
     public bool isPlaying
@@ -34,8 +34,7 @@ public class DeviceCameraController : MonoBehaviour {
 		}
 	}
 
-	void Start()
-	{
+	private void OnEnable() {
         webcam = new DeviceCamera (isUseEasyWebCam);
 		e_CameraPlaneObj = transform.Find ("CameraPlane").gameObject;
 		StartWork ();

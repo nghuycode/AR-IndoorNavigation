@@ -18,7 +18,7 @@ public class QRCodeDecodeController : MonoBehaviour
 	public delegate void QRScanFinished(string str);  //declare a delegate to deal with the QRcode decode complete
 	public event QRScanFinished onQRScanFinished;  		//declare a event with the delegate to trigger the complete event
 	
-	bool decoding = false;		
+	public bool decoding = false;		
 	bool tempDecodeing = false;
 	string dataText = null;
 	public DeviceCameraController e_DeviceController = null; 
@@ -37,7 +37,7 @@ public class QRCodeDecodeController : MonoBehaviour
 	#endif
 	bool isInit = false;
 	BarcodeReader barReader;
-	void Start()
+	void OnEnable()
 	{
 		barReader = new BarcodeReader ();
 		barReader.AutoRotate = true;
@@ -139,8 +139,8 @@ public class QRCodeDecodeController : MonoBehaviour
 				}
 				tempDecodeing = decoding;
 			}
-		}
 	}
+}
  	
 	/// <summary>
 	/// Reset this scan param

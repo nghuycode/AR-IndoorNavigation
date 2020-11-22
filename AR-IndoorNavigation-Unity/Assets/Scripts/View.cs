@@ -7,6 +7,7 @@ public class View : MonoBehaviour
 {
     public Dropdown ViewDropdown;
     public GameObject ARView, QRView, MapView;
+    public QRScanner QRScanner;
 
     private void Start() {
         ViewDropdown.onValueChanged.AddListener(OnViewChange);
@@ -27,12 +28,13 @@ public class View : MonoBehaviour
     }
     public void ActivateARView() {
         ResetView();
-        ARView.SetActive(true);
         MapView.SetActive(true);
+        ARView.SetActive(true);
     }
     public void ActivateQRView() {
         ResetView();
         QRView.SetActive(true);
+        QRScanner.StartScan();
     }
     public void ActivateMapView() {
         ResetView();
