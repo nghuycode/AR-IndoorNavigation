@@ -24,8 +24,6 @@ public class PlacementIndicator : MonoBehaviour
         else {
             CanIndicate = false;
             visual.SetActive(false);
-            GameObject GO = GameObject.FindGameObjectWithTag("Portal");
-            //GameObject.Destroy(GO);
         }
         if (CanIndicate) {
             List<ARRaycastHit> hits = new List<ARRaycastHit>();
