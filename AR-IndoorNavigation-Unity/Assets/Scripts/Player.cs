@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     {
         if (Input.touchCount > 0 && CanSpawn)
         {
-            if (Input.GetTouch(0).tapCount == 2) {
+            if (Input.GetTouch(0).tapCount == 2 && Input.GetTouch(0).phase == TouchPhase.Ended) {
                 Debug.Log("Spawned POI");
                 Vector3 realWorldPosPC = PlacementIndicator.transform.position; 
                 GameObject GOPC = Instantiate(POIPrefab, Vector3.zero, Quaternion.identity);

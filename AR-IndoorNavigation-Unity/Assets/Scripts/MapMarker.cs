@@ -6,12 +6,27 @@ using SimpleJSON;
 using System.IO;
 public class MapMarker : MonoBehaviour
 {
+    public GameObject POIPrefab;
     public View View;
     public List<POI> POIList = new List<POI>();
 
     public void LoadPOI(string markerName)
     {
         //load data of all POI(s) in the json file
+        string path = Application.persistentDataPath + "/data.json";
+        string jsonString = File.ReadAllText(path);
+        Debug.Log(jsonString);
+        var playerJson = JSON.Parse(jsonString);
+
+        //SET VALUES
+        Debug.Log(playerJson.AsArray.Count);
+        for (int i = 0; i < this.transform.childCount; ++i) 
+            GameObject.Destroy(this.transform.GetChild(i).gameObject);
+        for (int i = 0; i < playerJson.AsArray.Count; ++i) {
+            GameObject GOPC = Instantiate(POIPrefab, Vector3.zero, Quaternion.identity, this.transform);
+            POIList.Add(GOPC.GetComponent<POI>());
+            GOPC.GetComponent<POI>().LoadFromJSON(playerJson[i]["Name"], playerJson[i]["Pos"]);
+        }
     }
     public void SavePOI(string markerName) {
         for (int i = 0; i < this.transform.childCount; ++i) 

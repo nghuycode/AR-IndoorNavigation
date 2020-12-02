@@ -2,25 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using SimpleJSON;
 
 public class POI : MonoBehaviour {
-    public string Name;
-    public Vector3 OffsetPos;
-    public Text UIName;
+    public Canvas Canvas;
+    public TMP_InputField InputField;
     private void OnEnable() {
-        OffsetPos = this.transform.localPosition;
-        Name = this.gameObject.name;
-        
-        ApplyName();
+        Canvas.worldCamera = Camera.main;
     }
     public JSONNode SaveToJSON() {
         JSONNode node = new JSONObject();
-        node["Name"] = Name;
-        node["Pos"] = OffsetPos;
+        node["Name"] = InputField.text;
+        node["Pos"] = this.transform.localPosition;
         return node;
     }
-    public void ApplyName() {
-        UIName.text = Name;
+    public void LoadFromJSON(string name, Vector3 newPos) {
+        InputField.text = name;
+        this.transform.localPosition = newPos;
     }
 }
