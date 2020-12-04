@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class View : MonoBehaviour
 {
+    public static View Instance;
     public Dropdown ViewDropdown;
-    public GameObject ARView, QRView, MapView;
+    public GameObject ARView, QRView, MapMarker;
     public QRScanner QRScanner;
 
-    private void Start() {
+    private void Awake() {
+        Instance = this;
         ViewDropdown.onValueChanged.AddListener(OnViewChange);
     }
     public void OnViewChange(int num) {
@@ -21,29 +23,24 @@ public class View : MonoBehaviour
             case 1:
                 ActivateQRView();
                 break;
-            case 2:
-                ActivateMapView();
-                break;
         }
     }
     public void ActivateARView() {
         ResetView();
-        MapView.SetActive(true);
+        ViewDropdown.value = 0;
         ARView.SetActive(true);
     }
     public void ActivateQRView() {
         ResetView();
+        for (int i = 0; i < MapMarker.transform.childCount; ++i) {
+            GameObject.Destroy(MapMarker.transform.GetChild(i).gameObject);
+        }
+        ViewDropdown.value = 1;
         QRView.SetActive(true);
         QRScanner.StartScan();
     }
-    public void ActivateMapView() {
-        ResetView();
-        MapView.SetActive(true);
-        ARView.SetActive(true);
-    }
     void ResetView() {
         ARView.SetActive(false);
-        MapView.SetActive(false);
         QRView.SetActive(false);
     }
 }

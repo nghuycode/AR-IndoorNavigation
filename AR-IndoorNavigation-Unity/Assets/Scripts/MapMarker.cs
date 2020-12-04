@@ -13,7 +13,7 @@ public class MapMarker : MonoBehaviour
     public void LoadPOI(string markerName)
     {
         //load data of all POI(s) in the json file
-        string path = Application.persistentDataPath + "/data.json";
+        string path = Application.persistentDataPath + "/data" + markerName + ".json";
         string jsonString = File.ReadAllText(path);
         Debug.Log(jsonString);
         var playerJson = JSON.Parse(jsonString);
@@ -29,6 +29,8 @@ public class MapMarker : MonoBehaviour
         }
     }
     public void SavePOI(string markerName) {
+        Debug.Log(PlayerPrefs.GetInt("Map"));
+        PlayerPrefs.SetInt("Map", PlayerPrefs.GetInt("Map") + 1);
         for (int i = 0; i < this.transform.childCount; ++i) 
             POIList.Add(this.transform.GetChild(i).GetComponent<POI>());
         //Save data of all POI(s) in the json file
@@ -36,9 +38,9 @@ public class MapMarker : MonoBehaviour
         for (int i = 0; i < POIList.Count; ++i) {
             node.Add(POIList[i].SaveToJSON());
         }
-        Debug.Log(node.ToString());
         
-        string path = Application.persistentDataPath + "/data.json";
+        int id = PlayerPrefs.GetInt("Map");
+        string path = Application.persistentDataPath + "/data" + id.ToString() + ".json";
         Debug.Log(path);
         File.WriteAllText(path, node.ToString());
     }

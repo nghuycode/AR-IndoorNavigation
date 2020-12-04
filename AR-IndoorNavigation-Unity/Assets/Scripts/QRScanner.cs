@@ -17,6 +17,7 @@ public class QRScanner : MonoBehaviour
 		}
     }
     public void onScanFinished(string data) {
-        MapMarker.SavePOI(data);
+        MapMarker.LoadPOI(data);
+        View.Instance.ActivateARView();
     }
 }

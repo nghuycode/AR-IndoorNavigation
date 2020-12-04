@@ -13,6 +13,7 @@
 
 		void Update()
 		{
+			if (_camera != null)
 			transform.LookAt(transform.position + _camera.transform.rotation * Vector3.forward, _camera.transform.rotation * Vector3.up);
 		}
 	}
