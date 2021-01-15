@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public GameObject POIPrefab;
     public GameObject MapMarker;
     public PlacementIndicator PlacementIndicator;
+    public POIList POIList;
     public Text Log;
     private void Update()
     {
@@ -26,7 +27,8 @@ public class Player : MonoBehaviour
                 GameObject GOPC = Instantiate(POIPrefab, Vector3.zero, Quaternion.identity);
                 GOPC.transform.position = realWorldPosPC;
                 GOPC.transform.SetParent(MapMarker.transform);
-                Log.text = realWorldPosPC.ToString();
+                POIList.UpdatePOIList();
+                // realWorldPosPC.ToString();
             }
         }
     }

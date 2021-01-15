@@ -8,6 +8,6 @@ public class ARCamera : MonoBehaviour
     public Text Log;
     void Update()
     {
-        Log.text = this.transform.position.ToString();
+        //Log.text = this.transform.position.ToString();
     }
 }

@@ -19,7 +19,6 @@ public class MapMarker : MonoBehaviour
         var playerJson = JSON.Parse(jsonString);
 
         //SET VALUES
-        Debug.Log(playerJson.AsArray.Count);
         for (int i = 0; i < this.transform.childCount; ++i) 
             GameObject.Destroy(this.transform.GetChild(i).gameObject);
         for (int i = 0; i < playerJson.AsArray.Count; ++i) {
@@ -27,6 +26,8 @@ public class MapMarker : MonoBehaviour
             POIList.Add(GOPC.GetComponent<POI>());
             GOPC.GetComponent<POI>().LoadFromJSON(playerJson[i]["Name"], playerJson[i]["Pos"]);
         }
+        var POIListGO = GameObject.Find("POIList");
+        POIListGO.GetComponent<POIList>().UpdatePOIList();
     }
     public void SavePOI(string markerName) {
         Debug.Log(PlayerPrefs.GetInt("Map"));
