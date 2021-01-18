@@ -8,9 +8,10 @@ public class POIList : MonoBehaviour
     public int currentValue = -1;
     public Arrow Arrow;
     public Dropdown UIPOIList;
+    public InputField IPF;
     public List<POI> POIs = new List<POI>();
 
-    public GameObject MapMarker;
+    public GameObject MapMarker, GridPOI;
     private void Start() {
         UpdatePOIList();
     }
@@ -19,7 +20,13 @@ public class POIList : MonoBehaviour
         if (MapMarker.transform.childCount > 0) {
             var latestPOI = MapMarker.transform.GetChild(MapMarker.transform.childCount - 1).GetComponent<POI>();
             changeDDItemText(latestPOI.GetComponent<POI>().InputField.text, MapMarker.transform.childCount - 1);
+            updateButtonName();
         }
+    }
+    void updateButtonName()
+    {
+        for (int i = 0; i < MapMarker.transform.childCount; ++i)
+            GridPOI.transform.GetChild(i).GetChild(0).GetComponent<Text>().text = MapMarker.transform.GetChild(i).GetComponent<POI>().InputField.text;
     }
     void changeDDItemText(string newText, int index)
     {
@@ -47,7 +54,8 @@ public class POIList : MonoBehaviour
         UIPOIList.AddOptions(POINames);
     }
     public void POIChoose() {
-        Debug.Log(POIs[UIPOIList.value].name);
-        Arrow.Target = POIs[UIPOIList.value].transform;
+        for (int i = 0; i < POIs.Count; ++i)
+            if (POIs[i].InputField.text == IPF.text)
+                Arrow.Target = POIs[UIPOIList.value].transform;
     }
 }

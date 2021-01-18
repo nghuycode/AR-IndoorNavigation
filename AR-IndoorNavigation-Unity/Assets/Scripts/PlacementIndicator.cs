@@ -9,10 +9,12 @@ public class PlacementIndicator : MonoBehaviour
 {
     public bool CanIndicate;
     private ARRaycastManager raycastManager;
+    private ARPlaneManager arPlaneManager;
     private GameObject visual;
 
     private void Start() {
         raycastManager = FindObjectOfType<ARRaycastManager>();
+        arPlaneManager = FindObjectOfType<ARPlaneManager>();
         visual = transform.GetChild(0).gameObject;
         visual.SetActive(false);
     }
@@ -25,6 +27,7 @@ public class PlacementIndicator : MonoBehaviour
             CanIndicate = false;
             visual.SetActive(false);
         }
+
         if (CanIndicate) {
             List<ARRaycastHit> hits = new List<ARRaycastHit>();
             raycastManager.Raycast(new Vector2(Screen.width / 2, Screen.height / 2), hits, TrackableType.Planes);

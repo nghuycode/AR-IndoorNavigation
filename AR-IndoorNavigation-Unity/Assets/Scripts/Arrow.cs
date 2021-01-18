@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Arrow : MonoBehaviour
 {
     public Transform Target;
     public Transform Cam;
     public Vector3 offset;
     RectTransform rt;
+    public Text TargetName;
     private void Start() {
         rt = GetComponent<RectTransform>();
     }
@@ -27,6 +28,7 @@ public class Arrow : MonoBehaviour
 
 
             rt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            TargetName.text = Target.name;
         }
     }
 }
