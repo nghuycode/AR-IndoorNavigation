@@ -11,6 +11,7 @@ public class POIButton : MonoBehaviour
     }
     private void OnBtnClick()
     {
+        Debug.Log("cc");
         POIList.Instance.POIChooseByBtn(this.transform.GetChild(0).GetComponent<Text>().text);
     }
 }

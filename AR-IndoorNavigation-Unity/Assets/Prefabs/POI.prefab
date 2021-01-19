@@ -79,7 +79,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
-  - {fileID: 6713612893569490980}
+  - {fileID: 7692893112377374701}
   - {fileID: 1879445904896162129}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -169,7 +169,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &4851230983181848234
 MonoBehaviour:
@@ -276,8 +276,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b9522b5c3bf642444b861664fbcc5eaa, type: 2}
+  m_sharedMaterial: {fileID: 7391810479533892162, guid: b9522b5c3bf642444b861664fbcc5eaa,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -509,7 +510,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: b9522b5c3bf642444b861664fbcc5eaa, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
@@ -583,8 +584,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Name your location!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b9522b5c3bf642444b861664fbcc5eaa, type: 2}
+  m_sharedMaterial: {fileID: 7391810479533892162, guid: b9522b5c3bf642444b861664fbcc5eaa,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -670,13 +672,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!1001 &2445553918648812281
+--- !u!1001 &1592432076401726768
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 1858801769390061688}
     m_Modifications:
+    - target: {fileID: 8992375157427953064, guid: a4200772d9636c64e93702a9d82c27b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8993664150017757777, guid: a4200772d9636c64e93702a9d82c27b8,
         type: 3}
       propertyPath: m_Name
@@ -739,9 +746,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4200772d9636c64e93702a9d82c27b8, type: 3}
---- !u!4 &6713612893569490980 stripped
+--- !u!4 &7692893112377374701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8997014546053964509, guid: a4200772d9636c64e93702a9d82c27b8,
     type: 3}
-  m_PrefabInstance: {fileID: 2445553918648812281}
+  m_PrefabInstance: {fileID: 1592432076401726768}
   m_PrefabAsset: {fileID: 0}

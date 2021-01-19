@@ -28,7 +28,7 @@ public class Arrow : MonoBehaviour
 
 
             rt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            TargetName.text = Target.name;
+            TargetName.text = Target.GetComponent<POI>().InputField.text;
         }
     }
 }

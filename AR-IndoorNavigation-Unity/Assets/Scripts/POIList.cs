@@ -11,6 +11,7 @@ public class POIList : MonoBehaviour
     public Dropdown UIPOIList;
     public InputField IPF;
     public List<POI> POIs = new List<POI>();
+    public UIManager UIManager;
     
     private void Awake()
     {
@@ -62,12 +63,37 @@ public class POIList : MonoBehaviour
     public void POIChoose() {
         for (int i = 0; i < POIs.Count; ++i)
             if (POIs[i].InputField.text == IPF.text)
-                Arrow.Target = POIs[UIPOIList.value].transform;
+            {
+                Arrow.Target = POIs[i].transform;
+                UIManager.GoToBG2();
+                POIs[i].Enable();
+                return;
+            }
+    }
+    public void EnableAllPOI()
+    {
+        foreach (POI poi in POIs)
+        {
+            poi.Enable();
+        }
+    }
+    public void DisableAllPOI()
+    {
+        foreach (POI poi in POIs)
+        {
+            poi.Disable();
+        }
     }
     public void POIChooseByBtn(string name)
     {
+        Debug.Log(name);
         for (int i = 0; i < POIs.Count; ++i)
             if (POIs[i].InputField.text == name)
-                Arrow.Target = POIs[UIPOIList.value].transform;
+            {
+                Arrow.Target = POIs[i].transform;
+                UIManager.GoToBG2();
+                POIs[i].Enable();
+                return;
+            }
     }
 }

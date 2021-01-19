@@ -8,6 +8,7 @@ public class QRScanner : MonoBehaviour
     public MapMarker MapMarker;
     public QRCodeDecodeController qrController;
     public Text Log;
+    public UIManager UIManager;
     private void Start() {
         qrController.onQRScanFinished += onScanFinished;
     }
@@ -19,8 +20,9 @@ public class QRScanner : MonoBehaviour
 		}
     }
     public void onScanFinished(string data) {
-        Log.text = data.ToString();
-        MapMarker.LoadPOI(data);
+        //Log.text = data.ToString();
+        //MapMarker.LoadPOI(data);
         View.Instance.ActivateARView();
+        UIManager.QRUI();
     }
 }

@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
                 GOPC.transform.position = realWorldPosPC;
                 GOPC.transform.SetParent(MapMarker.transform);
                 POIList.UpdatePOIList();
+                GOPC.GetComponent<POI>().InputField.Select();
                 // realWorldPosPC.ToString();
             }
         }

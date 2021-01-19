@@ -26,7 +26,7 @@ public class GrassSpawner : MonoBehaviour
     public void SpawnAroundIndicator()
     {
         Vector3 indicatorPos = Indicator.transform.position;
-        GrassSpawner.Instance.DestroyAll();
+        //GrassSpawner.Instance.DestroyAll();
         //Spawn grass around the indicator
         for (float i = -5; i < 5; i++)
         {
