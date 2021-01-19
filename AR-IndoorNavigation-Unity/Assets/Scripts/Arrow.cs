@@ -8,7 +8,6 @@ public class Arrow : MonoBehaviour
     public Transform Cam;
     public Vector3 offset;
     RectTransform rt;
-    public Text TargetName;
     private void Start() {
         rt = GetComponent<RectTransform>();
     }
@@ -28,7 +27,7 @@ public class Arrow : MonoBehaviour
 
 
             rt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            TargetName.text = Target.GetComponent<POI>().InputField.text;
+            //TargetName.text = Target.GetComponent<POI>().InputField.text;
         }
     }
 }
