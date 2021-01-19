@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public GameObject BG1, BG2;
+    public GameObject Cam;
     public void BackToBG1()
     {
         BG1.SetActive(true);
@@ -14,5 +15,8 @@ public class UIManager : MonoBehaviour
     {
         BG1.SetActive(false);
         BG2.SetActive(true);
+    }
+    public void ToggleCam() {
+        Cam.SetActive(!Cam.activeInHierarchy);
     }
 }
