@@ -5,11 +5,17 @@ using UnityEngine.UI;
 
 public class POIList : MonoBehaviour
 {
+    public static POIList Instance;
     public int currentValue = -1;
     public Arrow Arrow;
     public Dropdown UIPOIList;
     public InputField IPF;
     public List<POI> POIs = new List<POI>();
+    
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public GameObject MapMarker, GridPOI;
     private void Start() {
@@ -56,6 +62,12 @@ public class POIList : MonoBehaviour
     public void POIChoose() {
         for (int i = 0; i < POIs.Count; ++i)
             if (POIs[i].InputField.text == IPF.text)
+                Arrow.Target = POIs[UIPOIList.value].transform;
+    }
+    public void POIChooseByBtn(string name)
+    {
+        for (int i = 0; i < POIs.Count; ++i)
+            if (POIs[i].InputField.text == name)
                 Arrow.Target = POIs[UIPOIList.value].transform;
     }
 }
